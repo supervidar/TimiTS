@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TimiTS.Models
+@model TimiTS.Models.WorkParticipation
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Hovedmeny";
+}
+
+<div class="text-center">    
+    @*<h3 id="greeting"></h3>*@
+    <h3>Velkommen til Timí</h3>
+    @*<h4>Din digitale timeliste</h4>*@
+    @*<h3>@UserManager.GetUserName(User)</h3>*@
+</div>
+
+
+<form asp-action="Index" role="form">
+
+    <input asp-for="UserId" class="form-control" style="display:none" value="@UserManager.GetUserId(User)" />
+
+    <div class="Btn-layout">
+        <p><a class="btn btn-primary btn-block" data-toggle="modal" data-target="#checkIn">Stemple inn</a></p>
+    </div>
+    <div class="Btn-layout">
+        <p><a class="btn btn-primary btn-block" asp-controller="AfterSend" asp-action="Index">Ettersend</a></p>
+    </div>
+    <div class="Btn-layout">
+        <p><a class="btn btn-primary btn-block" asp-controller="Absence" asp-action="Index">Fravær</a></p>
+    </div>
+  
+    <div class="modal fade" id="checkIn" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title">Innstempling av arbeidsøkt</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-dismissable alert-info"><p><strong>Du har nå valgt å stemple inn i en arbeidsøkt.</strong><a href="#" class="alert-link">  ønsker du å forsette?</a>.</p></div>
+                </div>
+                <div class="modal-footer">
+                    <button name="BtnStart" class="btn btn-success" type="submit">Ja</button>
+                    <button type="button" value="timeIn" class="btn btn-warning" data-dismiss="modal">Nei</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</form>
+
+<form asp-controller="Login" asp-action="Logout" asp-area="" method="post" id="logoutForm" >
+
+    <div class="Btn-layout">
+        <button class="btn btn-danger btn-block" type="submit" >Logg ut</button>
+    </div>
+  
+</form>

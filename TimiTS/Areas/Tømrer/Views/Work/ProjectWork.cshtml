@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TimiTS.Models
+@model TimiTS.Models.WorkParticipation
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Prosjektarbeid";
+}
+
+<form asp-action="ProjectWork" method="post">
+
+    <div class="form-horizontal">
+
+        <h3>Prosjektarbeid</h3>
+
+        <div style="display:none;" id="dato">@Html.DisplayFor(model => model.DateTimeIn)</div>
+        <div class="clock-layout">
+            <div class="clock btn-block">
+                <div class="time"></div>
+            </div>
+        </div>
+
+        <input type="hidden" asp-for="WPId" />
+
+        <div class="form-group">
+            <label asp-for="ProjectId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="ProjectId" asp-items="@ViewBag.ProjectId" class="form-control">
+                    <option>-- Velg prosjekt --</option>                    
+                </select>               
+                <span asp-validation-for="ProjectId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="WorkCategoryId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="WorkCategoryId" asp-items="@ViewBag.WorkCategoryId" class="form-control">
+                    <option>-- Velg arbeidsområde --</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Comment" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Comment" class="form-control"  />
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+        </div>
+
+        <input asp-for="WorkTypeId" value="1" style="display:none" />
+        <input asp-for="UserId" class="form-control" style="display:none" value="@UserManager.GetUserId(User)" />
+        <input asp-for="DateTimeIn" style="display:none" value="@Model.DateTimeIn"/>
+
+        <div class="btn-changes">
+            <p><a class="btn btn-success btn-block" data-toggle="modal" data-target="#checkOut">Stemple ut</a></p>
+        </div>
+    </div>
+    <div class="modal fade" id="checkOut" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title">Ut stempling</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-dismissable alert-info">Du er i ferd med å stemple ut. Velg Bekreft for å fullføre. Har du hatt pause i denne arbeidsøkten velger du dette under</div>
+                    <div class="form-group">
+                        <label asp-for="WPBreak" class="col-md-2 control-label"></label>
+                        <div class="col-md-10">
+                            <select asp-for="WPBreak" asp-items="@ViewBag.WPBreak" class="form-control"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button name="BtnCheckOut" class="btn btn-success" type="submit">Bekreft</button>
+                    <button type="button" value="timeIn" class="btn btn-warning" data-dismiss="modal">Avbryt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section scripts{       
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#ProjectId').select2();
+            });
+        </script>
+    }
+
+</form>

@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TimiTS.Models
+@model TimiTS.Models.WorkParticipation
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Sykemelding";
+}
+<h2>Sykemelding</h2>
+<div class="alert alert-dismissible alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Til informasjon!</h4>
+    <p><strong>Sykemelding</strong> skal fylles ut for hver dag.<a href="#" class="alert-link"> Velg antall timer og dato med evt. kommentar</a>. <strong>Husk dette i tillegg til å melde av på vanlig måte.</strong></p>
+</div>
+
+<form asp-action="SendAbsence" method="post">
+
+    <div class="form-group" style="display:none">
+        <label asp-for="WorkTypeId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="WorkTypeId" value="5" class="form-control" />
+            <span asp-validation-for="WorkTypeId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Hours" class="col-md-2 control-label">Fraværstimer</label>
+        <div class="col-md-10">
+            <select asp-for="Hours" asp-items="@ViewBag.Hours" class="form-control">
+                <option>-- Velg antall timer --</option>
+            </select>
+            <span asp-validation-for="Hours" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Fraværsdato</label>
+        <div class="col-md-10">
+            <input asp-for="DateTimeIn" class="form-control" type="date" placeholder="dd.mm.yyyy" />
+            <span asp-validation-for="DateTimeIn" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Comment" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Comment" class="form-control" />
+            <span asp-validation-for="Comment" class="text-danger"></span>
+        </div>
+    </div>
+
+    @*<input asp-for="UserId" class="form-control" style="display:none" value="@UserManager.GetUserId(User)" />*@
+    <input asp-for="UserId" class="form-control" style="display:none" value="@UserManager.GetUserId(User)" />
+
+    <button type="submit" class="btn btn-success">Send inn</button>
+
+</form>

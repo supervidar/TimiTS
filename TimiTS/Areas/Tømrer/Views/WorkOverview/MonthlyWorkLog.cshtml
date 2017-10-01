@@ -1,0 +1,105 @@
+﻿@model IEnumerable<TimiTS.Models.WorkParticipation>
+
+@{
+    ViewData["Title"] = "Timeliste";
+}
+
+<div class="text-center">
+    <h2>Månedsoversikt</h2>
+</div>
+
+<div class="alert alert-dismissible alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Til informasjon!</h4>
+    <p><strong>Timelisten</strong> Må verifiseres i slutten av måneden.<a href="#" class="alert-link"> Verifiser ved å trykk på verifiserings knappen under timelisten</a>.</p>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Dato
+            </th>
+            <th>
+                Prosjekt
+            </th>
+            <th>
+                Arbeid
+            </th>
+            <th>
+                Timer
+            </th>
+            <th>
+                Handling
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @String.Format("{0:m}", item.DateTimeIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WCId.WCPerformed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hours)
+                </td>
+                <td class="dropdown">                    
+                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Valg
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li> <a asp-action="Detail" asp-route-id="@item.WPId">Detalj</a></li>
+                            <li><a  asp-action="Edit" asp-route-id="@item.WPId">Rediger</a></li>
+                            <li> <a  asp-action="Delete" asp-route-id="@item.WPId">Slett</a></li>                            
+                        </ul>
+                </td>
+                   
+            </tr>
+        }
+        <tr>
+            <th style="font-weight:bold">
+                Sum
+            </th>
+            <th style="font:bold">
+                Måned
+            </th>
+            <th style="font:bold">
+
+            </th>
+            <th style="font:bold">
+                @ViewBag.Total
+            </th>
+        </tr>
+    </tbody>
+</table>
+<form asp-action="MonthlyWorkLog" method="post">
+
+    
+    <div>
+        <a data-target="#verify" data-toggle="modal" class="btn btn-primary btn-block">Verifiser</a>
+    </div>
+
+    <div class="modal fade" id="verify" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title">Verifikasjon av timeliste</h4>
+                </div>
+                <div class="modal-body">
+                   <div class="alert alert-dismissable alert-info"><p><strong>Du har nå valgt å verifisere timelisten for denne måneden.</strong><a href="#" class="alert-link">  ønsker du å forsette?</a>.</p></div>
+                </div>
+                <div class="modal-footer">
+                    <button name="BtnVerify" class="btn btn-success" type="submit">Ja</button>
+                    <button type="button" value="timeIn" class="btn btn-warning" data-dismiss="modal">Nei</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

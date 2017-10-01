@@ -1,0 +1,68 @@
+﻿@model TimiTS.Models.Contractor
+<h2> Oppdragsgiver redigering</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-horizontal">
+
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="CId" />
+        <div class="form-group">
+            <label asp-for="CName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CName" class="form-control" />
+                <span asp-validation-for="CName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CEmail" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CEmail" class="form-control" />
+                <span asp-validation-for="CEmail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CStreetAddress" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CStreetAddress" class="form-control" />
+                <span asp-validation-for="CStreetAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CPostalCode" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CPostalCode" class="form-control" />
+                <span asp-validation-for="CPostalCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CPostalAddress" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CPostalAddress" class="form-control" />
+                <span asp-validation-for="CPostalAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="COrgNr" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="COrgNr" class="form-control" />
+                <span asp-validation-for="COrgNr" class="text-danger"></span>
+            </div>
+        </div>
+       <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="btn-changes">
+                        <button type="submit" class="btn btn-default btn-block">Lagre</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="btn-changes">
+                        <a asp-action="Index" class="btn btn-default btn-block">Tilbake</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>
+

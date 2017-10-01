@@ -1,0 +1,55 @@
+﻿@model TimiTS.Models.Contractor
+
+<h2>Sletting av Kunde/Oppdragsgiver</h2>
+
+@*<h3>Er du sikker på at du vil slette prosjektet "@Model.Detail"?</h3>*@
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CStreetAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CStreetAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CPostalCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CPostalCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CPostalAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CPostalAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.COrgNr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.COrgNr)
+        </dd>
+		<dd>
+		 <form asp-action="Delete" method="post">
+          <div style="margin-left:-100px; margin-top:20px;" class="btn-changes">	
+           <input type="submit" value="Slett" class="btn btn-default btn-block" /> 
+			<a asp-action="Index" class="btn btn-default btn-block">Tilbake</a>	
+		  </div>
+		 </form>		
+         </dd>
+    </dl>
+</div>

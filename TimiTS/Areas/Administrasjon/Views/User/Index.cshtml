@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TimiTS.Models.ViewModels.UserListViewModel>
+
+@{
+    ViewData["Title"] = "Brukere";
+}
+
+    <h2 align="center">
+        Brukere
+    </h2>
+<div class="text-center">
+    <a asp-action="Create" class="btn btn-primary">Opprett ny bruker</a>
+</div>
+<table class="table table-striped table-bordered" id="UserTable">
+    <thead>
+        <tr>
+            <th>
+                Ansatt Id
+            </th>
+            <th>
+                Navn
+            </th>
+            <th>
+                Epost
+            </th>
+            <th>
+                Handling
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+               
+                <td>                 
+                    <a asp-action="Edit" asp-route-id="@item.Id">Rediger</a> |                   
+                    <a asp-action="Delete" asp-route-id="@item.Id">Slett</a> |
+                    @*<a asp-action="UserWorkYear" asp-route-id="@item.Id">Timeliste</a>*@ 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#UserTable').DataTable();
+        });
+    </script>
+}
+
+

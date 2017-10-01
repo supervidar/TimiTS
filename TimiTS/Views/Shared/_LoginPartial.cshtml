@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TimiTS.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form  asp-controller="Login" asp-action="Logout" asp-area="" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">           
+           
+            @if (User.IsInRole("Tømrer"))
+            {
+                <li>
+                    <a asp-controller="Manage" asp-action="Index" asp-area="Tømrer" title="Home">Brukerinstillinger</a>
+                </li>
+            }
+            @if (User.IsInRole("Administrasjon"))
+            {
+                <li>
+                    <a asp-controller="Manage" asp-action="Index" asp-area="Administrasjon" title="Home">Brukerinstillinger</a>
+                </li>
+            }
+            
+
+
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Logg ut</a></li>
+            
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">       
+        <li><a asp-controller="Login" asp-action="Login" asp-area="">Logg inn</a></li>
+    </ul>
+}

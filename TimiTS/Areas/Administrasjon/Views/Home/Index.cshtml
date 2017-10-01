@@ -1,0 +1,24 @@
+﻿<style>
+    .image2 {
+        height: auto;
+        width: 400px;
+    }
+</style>
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+
+<div class="jumbotron">
+    <div align="center" class="row">
+        <h1>Timí</h1>
+        <p class="lead">Din medhjelper og kompanjong i hverdagen på jobb</p>
+        <img src="~/images/StorTimi.png" class="image2" />
+       
+
+
+        <div class="text-center lead">
+            <h3 id="greeting"></h3>
+            <h3>@UserManager.GetUserName(User)</h3>
+        </div>
+       
+    </div>
+</div>

@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TimiTS.Models
+@model TimiTS.Models.WorkParticipation
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Timearbeid";
+}
+
+<h3>Ettersend timearbeid</h3>
+
+
+
+<form asp-action="HourWork" method="post">
+
+   
+
+    <div class="form-group" style="display:none">
+        <label asp-for="WorkTypeId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="WorkTypeId" value="2" class="form-control" />
+            <span asp-validation-for="WorkTypeId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProjectId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="ProjectId" asp-items="@ViewBag.ProjectId" class="form-control">
+                <option>-- Velg prosjekt --</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ContracterId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="ContracterId" asp-items="@ViewBag.ContracterId" class="form-control">
+                <option>-- Velg kunde --</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Hours" class="col-md-2 control-label">Fraværstimer</label>
+        <div class="col-md-10">
+            <select asp-for="Hours" asp-items="@ViewBag.Hours" class="form-control">
+                <option>-- Velg antall timer --</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Dato, utført arbeid</label>
+        <div class="col-md-10">
+            <input asp-for="DateTimeIn" class="form-control" placeholder="dd.mm.yyyy" type="date" />
+            <span asp-validation-for="DateTimeIn" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label  class="col-md-2 control-label">Arbeid utført</label>
+        <div class="col-md-10">
+            <input asp-for="Comment" class="form-control" rows="3" />
+            <span asp-validation-for="Comment" class="text-danger"></span>
+        </div>
+    </div>
+
+ 
+    <input asp-for="UserId" class="form-control" style="display:none" value="@UserManager.GetUserId(User)" />
+    <input asp-for="WorkCategoryId" style="display:none" value="10"/> 
+    <button type="submit" class="btn btn-success">Send inn</button>
+
+</form>
+
+@section scripts{
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#ProjectId').select2();
+            });
+    </script>
+}
+

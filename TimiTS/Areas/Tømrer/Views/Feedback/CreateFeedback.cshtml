@@ -1,0 +1,35 @@
+﻿@model TimiTS.Models.Feedback
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Tilbakemelding";
+}
+
+<div>
+    <h2>Tilbakemelding</h2>
+</div>
+
+<form asp-action="CreateFeedback" method="post">
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Kategori</label>
+        <div class="col-md-10">
+            <select asp-for="FeedbackCategoryId" asp-items="@ViewBag.FeedbackCategoryId" class="form-control">
+                <option>-- Velg kategori --</option>
+            </select>
+            <span asp-validation-for="FeedbackCategoryId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-a class="col-md-2 control-label">Tilbakemelding</label>
+        <div class="col-md-10">
+            <input asp-for="FComment" class="form-control" />
+            <span asp-validation-for="FComment" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input asp-for="FUser" class="form-control" style="display:none" value="@UserManager.GetUserId(User)" />
+
+    <button type="submit" class="btn btn-success">Send inn</button>
+</form>

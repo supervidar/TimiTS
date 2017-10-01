@@ -1,0 +1,127 @@
+﻿@model TimiTS.Models.WorkParticipation
+
+@{
+    ViewData["Title"] = "Slett";
+}
+@{
+    int prosjektarbeid = 1;
+    int timearebeid = 2;
+}
+
+<h2>Sletting av arbeidsøkt</h2>
+
+@*<h3>Er du sikker på at du vil slette prosjektet "@Model.Detail"?</h3>*@
+<div>
+    @if (Model.WorkTypeId == prosjektarbeid)
+    {
+        <h4>Prosjektarbeid</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.WTId.WTType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WTId.WTDetail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PId.Detail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateTimeIn)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateTimeIn)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateTimeOut)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateTimeOut)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Hours)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Hours)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkCategoryId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WCId.WCDetail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Comment)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Comment)
+            </dd>
+        </dl>
+    }
+
+    @if (Model.WorkTypeId == timearebeid)
+    {
+        <h4>Prosjektarbeid</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.WTId.WTType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WTId.WTDetail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PId.Detail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateTimeIn)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateTimeIn)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DateTimeOut)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateTimeOut)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Hours)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Hours)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkCategoryId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.WCId.WCDetail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ContracterId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CId.CName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Comment)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Comment)
+            </dd>
+        </dl>
+    }
+
+    <form asp-action="Delete" method="post">
+        <div class="btn-changes">
+            <input type="submit" value="Slett" class="btn btn-default btn-block" />
+            <a asp-action="Index" class="btn btn-default btn-block">Tilbake</a>
+        </div>
+    </form>
+</div>

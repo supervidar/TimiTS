@@ -1,0 +1,87 @@
+﻿@model TimiTS.Models.ViewModels.UserEditViewModel
+
+<h2>Rediger bruker</h2>
+
+<form asp-action="Edit" role="form">
+
+    <div class="form-horizontal">
+        <h4>Contractor</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="EId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EId" class="form-control" />
+                <span asp-validation-for="EId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EName" class="form-control" />
+                <span asp-validation-for="EName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>       
+        <div class="form-group">
+            <label asp-for="EStreetAddress" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EStreetAddress" class="form-control" />
+                <span asp-validation-for="EStreetAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EPostalCode" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EPostalCode" class="form-control" />
+                <span asp-validation-for="EPostalCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EPostalAddress" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EPostalAddress" class="form-control" />
+                <span asp-validation-for="EPostalAddress" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EJobTitle" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EJobTitle" class="form-control" />
+                <span asp-validation-for="EJobTitle" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RoleId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="RoleId" asp-items="@Model.Roles" class="form-control">
+                   
+                </select>
+                <span asp-validation-for="RoleId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="btn-changes">
+                        <button type="submit" class="btn btn-default btn-block">Lagre</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="btn-changes">
+                        <a asp-action="Index" class="btn btn-default btn-block">Tilbake</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>
+

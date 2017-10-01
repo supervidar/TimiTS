@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TimiTS.Models
+@model TimiTS.Models.WorkParticipation
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Prosjektarbeid";
+}
+
+<h3>Ettersend prosjektarbeid</h3>
+
+
+
+<form asp-action="ProjectWork" method="post">
+
+
+    <div class="form-group">
+        <label asp-for="ProjectId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="ProjectId" asp-items="@ViewBag.ProjectId" class="form-control">
+                <option>-- Velg prosjekt --</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WorkCategoryId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="WorkCategoryId" asp-items="@ViewBag.WorkCategoryId" class="form-control">
+                <option>-- Velg arbeidsområde --</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Hours" class="col-md-2 control-label">Fraværstimer</label>
+        <div class="col-md-10">
+            <select asp-for="Hours" asp-items="@ViewBag.Hours" class="form-control">
+                <option>-- Velg antall timer --</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label  class="col-md-2 control-label">Dato, utført arbeid</label>
+        <div class="col-md-10">
+            <input asp-for="DateTimeIn" class="form-control" placeholder="dd.mm.yyyy" type="date" />
+            <span asp-validation-for="DateTimeIn" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Comment" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Comment" class="form-control" rows="3" />
+            <span asp-validation-for="Comment" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input asp-for="WorkTypeId" value="1"  style="display:none"/>
+    <input asp-for="UserId" class="form-control" style="display:none" value="@UserManager.GetUserId(User)" />
+    @*<input asp-for="DateTimeOut" style="display: none" value="DateTime.Now" />*@
+    
+    <button type="submit" class="btn btn-success">Send inn</button>
+
+</form>
+
+
+@section scripts{
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $('#ProjectId').select2();
+            });
+    </script>
+}

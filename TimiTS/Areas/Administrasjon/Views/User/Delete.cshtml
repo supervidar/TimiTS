@@ -1,0 +1,19 @@
+﻿@model string
+
+<h2>Slett bruker</h2>
+
+
+<div>
+
+    <hr />
+
+    <form asp-action="Delete" role="form">
+        <div>
+            Er du sikker på at du vil slette @Model?
+        </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Slett" class="btn btn-default" /> |
+            <a asp-action="Index" class="btn btn-default">Tilbake</a>
+        </div>
+    </form>
+</div>

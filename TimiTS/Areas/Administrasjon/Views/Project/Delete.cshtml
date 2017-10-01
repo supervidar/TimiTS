@@ -1,0 +1,106 @@
+﻿@model TimiTS.Models.Project
+
+<h2>Sletting av prosjekt</h2>
+
+@*<h3>Er du sikker på at du vil slette prosjektet "@Model.Detail"?</h3>*@
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PStartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PStartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateMasonry)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateMasonry)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateTile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateTile)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateStructural)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateStructural)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateExternal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateExternal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateStender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateStender)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimatePlating)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimatePlating)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateFinalWork)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateFinalWork)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateGarage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateGarage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateAssembly)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateAssembly)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PEstimateOther)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PEstimateOther)
+        </dd>
+		<dt>
+		<dd>
+         <form asp-action="Delete" method="post">
+          <div style="margin-left:-100px; margin-top:20px;" class="btn-changes">    
+           <input type="submit" value="Slett" class="btn btn-default btn-block" /> 
+            <a asp-action="Index" class="btn btn-default btn-block">Tilbake</a> 
+          </div>
+         </form>        
+         </dd>	
+		 
+    </dl>
+
+</div>

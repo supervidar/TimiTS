@@ -1,0 +1,68 @@
+﻿@model IEnumerable<TimiTS.Models.WorkParticipation>
+
+@{
+    ViewData["Title"] = "Arbeidsøkter";
+}
+
+
+<div class="text-center">
+    <h2>
+        Arbeid
+    </h2>
+</div>
+
+<table class="table table-striped table-bordered" id="WorkEditTable">
+    <thead>
+        <tr>
+            <th>
+                Dato
+            </th>
+            <th>
+                Prosjekt Id
+            </th>
+            <th>
+                Arbeidsområde
+            </th>
+            <th>
+                Timer
+            </th>
+            <th>
+                Handling
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @String.Format("{0:m}", item.DateTimeIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WCId.WCPerformed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hours)
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-xs" asp-action="Edit" asp-route-id="@item.WPId"><span class="glyphicon glyphicon-pencil"></span></a> |
+                    <a class="btn btn-danger btn-xs" asp-action="Delete" asp-route-id="@item.WPId"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@section scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#WorkEditTable').DataTable();
+        });
+    </script>
+}

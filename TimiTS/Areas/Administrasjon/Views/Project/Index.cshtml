@@ -1,0 +1,133 @@
+﻿@model IEnumerable<TimiTS.Models.Project>
+
+
+@{
+    ViewData["Title"] = "Prosjekter";
+}
+
+     <h2 align="center">
+        Prosjekter
+    </h2>
+<div class="text-center">
+    <a asp-action="Create" class="btn btn-primary">Opprett nytt prosjekt</a>
+</div>
+<table class="table table-striped table-bordered" id="ProjectTable">
+    <thead>
+        <tr>
+            <th>
+                Prosjekt Id
+            </th>
+            <th>
+                Prosjektnavn
+            </th>
+            <th>
+                Start dato
+            </th>
+            <th>
+                slutt dato
+            </th>
+            <th>
+                Mur
+            </th>
+            <th>
+                Flis
+            </th>
+            <th>
+                Råbygg
+            </th>
+            <th>
+                Utvendig
+            </th>
+            <th>
+                iso og stendr.
+            </th>
+            <th>
+                Plating
+            </th>
+            <th>
+                Slutt arb.
+            </th>
+            <th>
+                car/gar
+            </th>
+            <th>
+                Montering
+            </th>
+            
+            <th>Annet</th>
+            <th>Handling</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateMasonry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateTile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateStructural)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateExternal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimatePlating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateStender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateFinalWork)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateGarage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateAssembly)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PEstimateOther)
+                </td>
+                <td>
+
+                    <a asp-action="ProjectOverview" asp-route-id="@item.PId">Oversikt</a> | 
+                    <a asp-action="Edit" asp-route-id="@item.PId">Rediger</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PId">Slett</a> 
+                    @*<form asp-action="Delete" method="post">
+                        <a asp-action="Edit" asp-route-id="@item.PId">Rediger</a>
+                        <input type="submit" value="Slett" />
+                           
+                        
+                    </form>|*@
+                  
+                 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#ProjectTable').DataTable();
+        });
+    </script>
+}

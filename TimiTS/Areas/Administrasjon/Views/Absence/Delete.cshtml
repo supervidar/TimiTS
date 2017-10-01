@@ -1,0 +1,51 @@
+﻿@model TimiTS.Models.WorkParticipation
+
+<h2>Sletting av fravær</h2>
+
+@*<h3>Er du sikker på at du vil slette prosjektet "@Model.Detail"?</h3>*@
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Fraværstype
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WTId.WTType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hours)
+        </dd>
+        <dt>
+            Fraværsdato
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeIn)
+        </dd>
+        <dt>
+            Dato, Sendt inn
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeOut)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+        <dd>
+         <form asp-action="Delete" method="post">
+          <div style="margin-left:-100px; margin-top:20px;" class="btn-changes">    
+           <input type="submit" value="Slett" class="btn btn-default btn-block" /> 
+            <a asp-action="Index" class="btn btn-default btn-block">Tilbake</a> 
+          </div>
+         </form>        
+    </dd>
+
+    </dl>
+   
+</div>

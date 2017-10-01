@@ -1,0 +1,56 @@
+﻿@model TimiTS.Models.ViewModels.UserViewModel
+
+<form asp-controller="User" asp-action="Create"  method="post" class="form-horizontal">
+    <h4>Create a new account.</h4>
+    <hr />
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="EId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="EId" class="form-control" />
+            <span asp-validation-for="EId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="EName" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="EName" class="form-control" />
+            <span asp-validation-for="EName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserName" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="RoleId" class="col-md-2 control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="RoleId" asp-items="@Model.Roles" class="form-control">
+                <option>-- Velg en rolle --</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-default">Register</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TimiTS.Models.ViewModels.WorkListViewModel>
+
+
+<div class="text-center">
+    <h2>Månedsoversikt</h2>
+</div>
+
+<table class="table table-bordered table-striped" id="WorkTable">
+    <thead>
+        <tr>
+            <td>
+                År
+            </td>
+            <th>
+                Måned
+            </th>
+            <th>
+                Tømrer
+            </th>
+            <th>
+                Verifisert
+            </th>
+            <th>
+                Timer
+            </th>
+            <th>
+                Handling
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>   
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearInt)
+                </td>
+                <td>
+                    @System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(item.DateInt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @if (item.Verified)
+                    {
+                        <p>Verifisert</p>
+                    }
+                    else
+                    {
+                        <p>Ikke verifisert</p>
+                    }
+                   
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalHours)
+                </td>
+                <td class="text-center">
+                    <a class="btn btn-info btn-sm " asp-action="MonthlyWorkLog" asp-route-id="@item.DateInt">Detalj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#WorkTable').DataTable();
+        });
+    </script>
+}

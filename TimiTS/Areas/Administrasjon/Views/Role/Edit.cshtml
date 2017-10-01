@@ -1,0 +1,33 @@
+﻿@model TimiTS.Models.ViewModels.RoleViewModel
+<h2>Prosjekt redigering</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-horizontal">
+
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="RoleName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RoleName" class="form-control" />
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RoleDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RoleDescription" class="form-control" />
+                <span asp-validation-for="RoleDescription" class="text-danger"></span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">Lagre</button>
+                <a asp-action="Index" class="btn btn-default">Tilbake</a>
+            </div>
+        </div>
+    </div>
+</form>
+

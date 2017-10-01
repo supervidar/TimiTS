@@ -1,0 +1,167 @@
+﻿@model TimiTS.Models.ViewModels.ProjectAndWorkViewModel
+
+
+
+<div align="center">
+    <h2>Prosjektoversikt</h2>
+</div>
+<a style="text-align:center" class="btn btn-default btn-sm" href="@Url.Action("Index", "Project")">Tilbake</a>
+<br />
+<table id="myTable" style=" border-collapse: collapse; border: 1px solid black;" name="myTable " class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th style="border: 1px solid black;">Pro Nr</th>
+            <th style="background-color: #AEAAAA; border: 1px solid black;">@Html.DisplayFor(model => model.Project.PId)</th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+        </tr>
+
+        <tr>
+            <th style="border: 1px solid black;">Pro Navn</th>
+            <th style="background-color: #A9D08E; border: 1px solid black;">@Html.DisplayFor(model => model.Project.PName)</th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style=" background-color: #F8CBAD; border: 1px solid black;">Murer</th>
+            <th style="background-color: #DBDBDB; border: 1px solid black;">Flislegger</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">Tømrer</th>
+            <th style="background-color: #FFD966; border: 1px solid black;">Montør</th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+        </tr>
+
+        <tr>
+            <th style="border: 1px solid black;">Måned</th>
+            <th style="border: 1px solid black;">Nr</th>
+            <th style="border: 1px solid black;">Navn</th>
+            <th style="border: 1px solid black;">Sum timer</th>
+            <th style=" background-color: #F8CBAD; border: 1px solid black;">1) Mur</th>
+            <th style="background-color: #DBDBDB; border: 1px solid black;">2) Flis</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">3) Råbygg</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">4) Utvending</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">5) Iso og stendr.</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">6) Plating</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">7) Slutt arb.</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">8) car / gar.</th>
+            <th style="background-color: #FFD966; border: 1px solid black;">9) Montering</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">10) Annet</th>
+            <th style="border: 1px solid black;">Notat</th>
+        </tr>
+
+        <tr>
+            <th style="border: 1px solid black;">Beregna timer</th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateMasonry)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateTile)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateStructural)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateExternal)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateStender)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimatePlating)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateFinalWork)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateGarage)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateAssembly)</th>
+            <th style="border: 1px solid black;">@Html.DisplayFor(model => model.Project.PEstimateOther)</th>
+            <th style="border: 1px solid black;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProjectWork)
+        {
+
+            <tr>
+                <td style="color : #FF0000; border: 1px solid black;">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(item.Date)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.EId)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.EName)</td>
+                <td style="border: 1px solid black;"></td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA1)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA2)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA3)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA4)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA5)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA6)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA7)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA8)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA9)</td>
+                <td style="color : #FF0000; border: 1px solid black;">@Html.DisplayFor(model => item.WA10)</td>
+                <td style="border: 1px solid black;"></td>
+
+            </tr>
+
+        }
+        <tr>
+            <th style="border: 1px solid black;"> </th>
+            <th style="border: 1px solid black;">Sum</th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"> @ViewBag.TotalSum</th>
+            <th style=" background-color: #F8CBAD; border: 1px solid black;"><span id="sum1">@ViewBag.Id1</span></th>
+            <th style="background-color: #DBDBDB; border: 1px solid black;"><span id="sum2">@ViewBag.Id2</span></th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;"><span id="sum3">@ViewBag.Id3</span></th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;"><span id="sum4">@ViewBag.Id4</span></th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;"><span id="sum5">@ViewBag.Id5</span></th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;"><span id="sum6">@ViewBag.Id6</span></th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;"><span id="sum7">@ViewBag.Id7</span></th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;"><span id="sum8">@ViewBag.Id8</span></th>
+            <th style="background-color: #FFD966; border: 1px solid black;"><span id="sum9">@ViewBag.Id9</span></th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;"><span id="sum10">@ViewBag.Id10</span></th>
+            <th style="border: 1px solid black; border: 1px solid black;"></th>
+        </tr>
+
+        <tr>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;"></th>
+            <th style="border: 1px solid black;">Sum timer</th>
+            <th style=" background-color: #F8CBAD; border: 1px solid black;">1) Mur</th>
+            <th style="background-color: #DBDBDB; border: 1px solid black;">2) Flis</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black; border: 1px solid black;">3) Råbygg</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">4) Utvending</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">5) Iso og stendr.</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">6) Plating</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">7) Slutt arb.</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">8) car / gar.</th>
+            <th style="background-color: #FFD966; border: 1px solid black;">9) Montering</th>
+            <th style="background-color: #9BC2E6; border: 1px solid black;">10) Annet</th>
+            <th style="border: 1px solid black; border: 1px solid black;"></th>
+        </tr>
+    </tbody>
+
+</table>
+
+<input type="button" class="btn btn-default btn-sm" onclick="tableToExcel('myTable', '')" value="Eksporter til Excel">
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var tableToExcel = (function () {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns: x = "urn:schemas-microsoft-com:office:excel" xmlns = "http://www.w3.org/TR/REC-html40" > <head> <meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"> <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets> <x:ExcelWorksheet><x:Name>{worksheet}</x:Name> <x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions > </x: ExcelWorksheet ></x: ExcelWorksheets ></x: ExcelWorkbook > </xml ><![endif]-- ></head > <body> <table>{table}</table></body></html > '
+            , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+            , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+        return function (table, name) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+            window.location.href = uri + base64(format(template, ctx))
+        }
+    })()
+</script>
+
+
+

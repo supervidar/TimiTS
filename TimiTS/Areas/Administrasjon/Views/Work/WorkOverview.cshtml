@@ -1,0 +1,179 @@
+﻿@model IEnumerable<TimiTS.Models.ViewModels.SumViewModel>
+
+<h2 align="center">Timeoversikt @ViewBag.Year</h2>
+
+@*<a style="text-align:center" class="btn btn-default btn-sm" asp-action="WorkArchive">Tilbake</a>*@
+
+<table id="myTable" name="myTable " class="table table-bordered table-striped">
+    <tr style="font-weight: bold">
+        <td>Ansattnr</td>
+        <td>Navn</td>
+        <td>Rest</td>
+        <td>Oppgjort</td>
+        <td>jan</td>
+        <td>feb</td>
+        <td>mar</td>
+        <td>apr</td>
+        <td>mai</td>
+        <td>jun</td>
+        <td style="font-weight:bold">Sum halvt år</td>
+        <td>jul</td>
+        <td>aug</td>
+        <td>sep</td>
+        <td>okt</td>
+        <td>nov</td>
+        <td>des</td>
+        <td style="font-weight: bold">Sum år</td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+    </tr>
+    <tr>
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.EId)</td>
+            <td>@Html.DisplayFor(model => item.EName)</td>
+            <td></td>
+            <td></td>
+            <td>@Html.DisplayFor(model => item.Jan)</td>
+            <td>@Html.DisplayFor(model => item.Feb)</td>
+            <td>@Html.DisplayFor(model => item.Mar)</td>
+            <td>@Html.DisplayFor(model => item.Apr)</td>
+            <td>@Html.DisplayFor(model => item.Mai)</td>
+            <td>@Html.DisplayFor(model => item.Jun)</td>
+            <td style="font-weight: bold">@Html.DisplayFor(model => item.HalfSum)</td>
+            <td>@Html.DisplayFor(model => item.Jul)</td>
+            <td>@Html.DisplayFor(model => item.Aug)</td>
+            <td>@Html.DisplayFor(model => item.Sep)</td>
+            <td>@Html.DisplayFor(model => item.Okt)</td>
+            <td>@Html.DisplayFor(model => item.Nov)</td>
+            <td>@Html.DisplayFor(model => item.Des)</td>
+            <td style="font-weight:bold">@Html.DisplayFor(model => item.TotSum)</td>
+        </tr>
+    }
+
+
+
+    <tr style="font-weight: bold">
+        <td></td>
+        <td>Sum:</td>
+        <td></td>
+        <td></td>
+        <td>@ViewBag.Id1</td>
+        <td>@ViewBag.Id2</td>
+        <td>@ViewBag.Id3</td>
+        <td>@ViewBag.Id4</td>
+        <td>@ViewBag.Id5</td>
+        <td>@ViewBag.Id6</td>
+        <td>@ViewBag.HalfSum</td>
+        <td>@ViewBag.Id7</td>
+        <td>@ViewBag.Id8</td>
+        <td>@ViewBag.Id9</td>
+        <td>@ViewBag.Id10</td>
+        <td>@ViewBag.Id11</td>
+        <td>@ViewBag.Id12</td>
+        <td>@ViewBag.TotalSum</td>
+    </tr>
+
+    <tr style="font-weight: bold">
+        <td></td>
+        <td></td>
+        <td>Rest</td>
+        <td>Oppgjort</td>
+        <td>jan</td>
+        <td>feb</td>
+        <td>mar</td>
+        <td>apr</td>
+        <td>mai</td>
+        <td>jun</td>
+        <td style="font-weight:bold">Sum første halvår</td>
+        <td>jul</td>
+        <td>aug</td>
+        <td>sep</td>
+        <td>okt</td>
+        <td>nov</td>
+        <td>des</td>
+        <td style="font-weight: bold">Sum hele året</td>
+    </tr>
+
+</table>
+
+<input type="button" class="btn btn-default btn-sm" onclick="tableToExcel('myTable', '')" value="Eksporter til Excel">
+
+
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var tableToExcel = (function () {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns: x = "urn:schemas-microsoft-com:office:excel" xmlns = "http://www.w3.org/TR/REC-html40" > <head> <meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8"> <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets> <x:ExcelWorksheet><x:Name>{worksheet}</x:Name> <x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions > </x: ExcelWorksheet ></x: ExcelWorksheets ></x: ExcelWorkbook > </xml ><![endif]-- ></head > <body> <table>{table}</table></body></html > '
+            , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+            , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+    return function (table, name) {
+        if (!table.nodeType) table = document.getElementById(table)
+        var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+        window.location.href = uri + base64(format(template, ctx))
+    }
+        })()
+</script>

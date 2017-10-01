@@ -1,0 +1,122 @@
+﻿.Btn-layout {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.btn-unsure {
+    color: #ffffff;
+    background-color: #f39c12;
+    border-color: #f39c12;
+    margin-top: 30px;
+    width: 150px;
+}
+
+.btn-important {
+    color: #ffffff;
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+    margin-top: 30px;
+    width: 150px;
+}
+
+.btn-changes {
+    width: 200px;
+}
+
+.clock-layout {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.time {
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 3px 5px 3px black;
+}
+
+.clock {
+    display: inline-block;
+    margin-bottom: 0;
+    color: #FFFFFF;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: url("clocky2.jpg");
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 4px 10px;
+    font-size: 20px;
+    line-height: 1.42857143;
+    border-radius: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /*box-shadow: 3px 3px 3px black;*/
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.PID-color {
+    background-color: #AEAAAA;
+}
+
+.PName-color {
+    background-color: #A9D08E;
+}
+
+.Mason-color {
+    background-color: #F8CBAD;
+}
+
+.Tile-color {
+    background-color: #DBDBDB;
+}
+
+.Timber-color {
+    background-color: #9BC2E6;
+}
+
+.Assembly-color {
+    background-color: #FFD966;
+}
+
+.font-color{
+    color : #FF0000;
+}
+#footerExport td {
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    border: none;
+}
+/*table, th, td {
+    border: 1px solid black;
+}*/
+
+.image2{
+    width:500px;
+    height:auto;
+}
+.submitBtn {
+    margin-top:300px;
+}

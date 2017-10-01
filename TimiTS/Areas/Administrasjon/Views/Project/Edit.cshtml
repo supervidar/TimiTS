@@ -1,0 +1,124 @@
+﻿@model TimiTS.Models.Project
+<h2>Prosjekt redigering</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-horizontal">
+
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="PId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PId" class="form-control" />
+                <span asp-validation-for="PId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PName" class="form-control" />
+                <span asp-validation-for="PName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PStartDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PStartDate" class="form-control" />
+                <span asp-validation-for="PStartDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEndDate" class="form-control" />
+                <span asp-validation-for="PEndDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateMasonry" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateMasonry" class="form-control" />
+                <span asp-validation-for="PEstimateMasonry" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateTile" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateTile" class="form-control" />
+                <span asp-validation-for="PEstimateTile" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateStructural" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateStructural" class="form-control" />
+                <span asp-validation-for="PEstimateStructural" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateExternal" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateExternal" class="form-control" />
+                <span asp-validation-for="PEstimateExternal" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateStender" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateStender" class="form-control" />
+                <span asp-validation-for="PEstimateStender" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimatePlating" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimatePlating" class="form-control" />
+                <span asp-validation-for="PEstimatePlating" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateFinalWork" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateFinalWork" class="form-control" />
+                <span asp-validation-for="PEstimateFinalWork" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateGarage" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateGarage" class="form-control" />
+                <span asp-validation-for="PEstimateGarage" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateAssembly" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateAssembly" class="form-control" />
+                <span asp-validation-for="PEstimateAssembly" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PEstimateOther" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PEstimateOther" class="form-control" />
+                <span asp-validation-for="PEstimateOther" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="btn-changes">
+                        <button type="submit" class="btn btn-default btn-block">Lagre</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="btn-changes">
+                        <a asp-action="Index" class="btn btn-default btn-block">Tilbake</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+</form>
+

@@ -1,0 +1,56 @@
+﻿@model TimiTS.Models.WorkParticipation
+
+@{
+    ViewData["Title"] = "Verifisering";
+}
+
+<div>
+    <h3>Oversikt over fullført arbeidsøkt</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Arbeidstype
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WTId.WTType)
+        </dd>
+        <dt>
+            Prosjekt
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProjectId)
+        </dd>
+        <dt>
+            Arbeidsområde
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WCId.WCDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hours)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hours)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WPBreak)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WPBreak)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+    </dl>
+</div>
+<div class="alert alert-dismissible alert-success">
+    <button class="close" type="button" data-dismiss="alert">&times;</button>
+    <a class="alert-link" href="#"> Se om informasjonen i arbeidsøkten stemmer med hva som ble utført.</a> Vennligst benytt "Tilbake til meny" knappen for å navigere til hovedmenyen.
+</div>
+<div class="btn-changes">
+    <a class="btn btn-success btn-block" asp-action="index">Tilbake til meny</a>
+</div>

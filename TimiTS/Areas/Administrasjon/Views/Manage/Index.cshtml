@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TimiTS.Models.ViewModels.UserListViewModel>
+
+
+<p>Brukerinnstillinger</p>
+
+<table class="table" id="ProjectTable">
+    <thead>
+        <tr>
+            <th>
+                Ansatt Id
+            </th>
+            <th>
+                Navn
+            </th>
+            <th>
+                Epost
+            </th>
+            <th>
+                Handling
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Rediger</a>                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

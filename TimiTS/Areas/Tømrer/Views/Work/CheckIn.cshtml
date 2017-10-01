@@ -1,0 +1,32 @@
+﻿@model TimiTS.Models.WorkParticipation
+
+@{
+    ViewData["Title"] = "Innstempling";
+}
+
+<div class="text-center">
+    <h3>Arbeid</h3>
+</div>
+@*TODO: <input asp-for="DateTimeIn"/> eller et alternativ for å ungå å bruke HtmlHelpers  *@
+<div style="display:none;" id="dato">@Html.DisplayFor(model=>model.DateTimeIn)</div>
+<div class="clock-layout">
+    <div class="clock btn-block">
+        <div class="time"></div>
+    </div>
+</div>
+
+
+
+
+<div class="alert alert-dismissible alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Til informasjon!</h4>
+    <p><strong>Du er nå innstemplet i en arbeidsøkt,</strong><a href="#" class="alert-link"> velg arbeidstypen basert på hva arbeid som skal utføres</a>.</p>
+</div>
+
+<div class="Btn-layout">
+    <a class="btn btn-primary btn-block" asp-controller="Work" asp-action="ProjectWork" asp-route-id="@Model.WPId">Prosjektarbeid</a>
+</div>
+<div class="Btn-layout">
+    <a class="btn btn-primary btn-block" asp-controller="Work" asp-action="HourWork" asp-route-id="@Model.WPId">Timearbeid</a>
+</div>

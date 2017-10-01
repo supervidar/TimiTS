@@ -1,0 +1,11 @@
+﻿@model string
+
+<form asp-action="Delete" method="post">
+
+    <div>
+        Er du sikker på at di vil slette @Model?
+        <input type="submit" value="Slett" class="btn btn-default" />
+        <a asp-action="Index" class="btn btn-default">Tilbake</a>
+    </div>
+
+</form>

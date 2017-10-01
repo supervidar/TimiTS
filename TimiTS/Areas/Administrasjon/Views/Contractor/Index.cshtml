@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TimiTS.Models.Contractor>
+
+@{
+    ViewData["Title"] = "Oppdragsgivere";
+}
+
+<div align="center">
+    <h2>
+        Oppdragsgivere
+    </h2>
+</div>
+<div class="text-center">
+    <a asp-action="Create" class="btn btn-default">Opprett ny kunde</a>
+</div>
+<table class="table table-striped table-bordered" id="ContractorTable">
+    <thead>
+        <tr>
+            
+            <th>
+                Navn
+            </th>
+            <th>
+                E-post
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Postadresse
+            </th>
+            <th>
+                Post sted
+            </th>
+            <th>
+                Orgnr.
+            </th>
+            
+            <th>Handling</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CStreetAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPostalAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPostalCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COrgNr)
+                </td>
+               
+                <td>                  
+                    <a asp-action="Edit" asp-route-id="@item.CId">Rediger</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CId">Slett</a>
+                   
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#ContractorTable').DataTable();
+        });
+    </script>
+}
+
+
